@@ -8,11 +8,13 @@ public class SimplePlayer implements Player {
 	private String ID;
 	private String name;
 	private int points;
+	private int currentBet;
 
 	public SimplePlayer(String id, String name, int points) {
 		this.ID = id;
 		this.name = name;
 		this.points = points;
+		this.currentBet = 0;
 	}
 
 	@Override
@@ -30,14 +32,17 @@ public class SimplePlayer implements Player {
 
 	@Override
 	public boolean placeBet(int bet) {
-		// TODO Auto-generated method stub
-		return false;
+		if(bet > this.points) {
+			return false;
+		} 
+		this.currentBet = bet;
+		this.points -= bet;
+		return true;
 	}
 
 	@Override
 	public int getBet() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.currentBet;
 	}
 
 	@Override
