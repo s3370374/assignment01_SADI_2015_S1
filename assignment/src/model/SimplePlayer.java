@@ -4,40 +4,29 @@ import model.interfaces.DicePair;
 import model.interfaces.Player;
 
 public class SimplePlayer implements Player {
+	
+	private String ID;
+	private String name;
+	private int points;
 
-	public SimplePlayer(String string, String string2, int i) {
-		// TODO Auto-generated constructor stub
+	public SimplePlayer(String id, String name, int points) {
+		this.ID = id;
+		this.name = name;
+		this.points = points;
 	}
 
 	@Override
-	public String getPlayerName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public String getPlayerName() { return this.name; }
+	@Override
+	public void setPlayerName(String name) { this.name = name; }
 
 	@Override
-	public void setPlayerName(String playerName) {
-		// TODO Auto-generated method stub
-		
-	}
+	public int getPoints() { return this.points; }
+	@Override
+	public void setPoints(int points) { this.points = points; }
 
 	@Override
-	public int getPoints() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setPoints(int points) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String getPlayerId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public String getPlayerId() { return this.ID; }
 
 	@Override
 	public boolean placeBet(int bet) {
@@ -62,5 +51,4 @@ public class SimplePlayer implements Player {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
