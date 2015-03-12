@@ -1,13 +1,21 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import model.interfaces.GameEngine;
 import model.interfaces.GameEngineCallback;
 import model.interfaces.Player;
 
 public class GameEngineImpl implements GameEngine {
-
+	
+	private List<Player> players;
+	
+	public GameEngineImpl() {
+		this.players = new ArrayList<Player>();
+	}
+	
 	@Override
 	public void rollPlayer(Player player, int initialDelay, int finalDelay,
 			int delayIncrement) {
@@ -23,8 +31,7 @@ public class GameEngineImpl implements GameEngine {
 
 	@Override
 	public void addPlayer(Player player) {
-		// TODO Auto-generated method stub
-		
+		this.players.add(player);
 	}
 
 	@Override
@@ -47,14 +54,12 @@ public class GameEngineImpl implements GameEngine {
 
 	@Override
 	public Collection<Player> getAllPlayers() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.players;
 	}
 
 	@Override
 	public boolean placeBet(Player player, int bet) {
-		// TODO Auto-generated method stub
-		return false;
+		return player.placeBet(bet);
 	}
 
 }
